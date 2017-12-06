@@ -1,0 +1,7 @@
+Pliki w katalogu
+index.js
+mountain.jpg
+node_modules
+package-lock.json
+package.json
+plik.txt

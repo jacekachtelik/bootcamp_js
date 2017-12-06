@@ -1,0 +1,19 @@
+{
+  "name": "http_webserver",
+  "version": "1.0.0",
+  "description": "Własny serwer www",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
+  },
+  "keywords": [
+    "http",
+    "serwer",
+    "www",
+    "node",
+    "npm"
+  ],
+  "author": "Jacek Achtelik",
+  "license": "ISC"
+}
