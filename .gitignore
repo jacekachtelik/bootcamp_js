@@ -712,3 +712,13 @@ html/mod03/mod03task05/package-lock.json
 /.project
 /.idea/vcs.xml
 /html/mod01/node_modules/.bin/.gitignore
+
+\.idea/
+
+\.settings/
+
+html/mod03/mod03task06/node_modules/
+
+html/mod03/mod03task06/package-lock\.json
+
+html/mod03/mod03task06/package\.json

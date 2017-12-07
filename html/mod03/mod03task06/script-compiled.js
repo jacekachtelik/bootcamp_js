@@ -2,9 +2,9 @@
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _timers = require('timers');
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// import { clearInterval } from "timers";
 
 var Stopwatch = function () {
     function Stopwatch(display) {
@@ -58,7 +58,7 @@ var Stopwatch = function () {
         key: 'stop',
         value: function stop() {
             this.running = false;
-            (0, _timers.clearInterval)(this.watch);
+            clearInterval(this.watch);
         }
     }, {
         key: 'calculate',

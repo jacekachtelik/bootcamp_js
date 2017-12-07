@@ -1,4 +1,4 @@
-import { clearInterval } from "timers";
+// import { clearInterval } from "timers";
 
 class Stopwatch {
     constructor(display) {
