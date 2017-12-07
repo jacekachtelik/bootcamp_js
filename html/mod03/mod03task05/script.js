@@ -8,3 +8,18 @@
 //}
 //
 //fs.readFile('myfile.txt', { encoding: 'utf8' }, onReadSuccess);
+var fs = require('fs');
+
+function readFile(filename) {
+	return new Promise(function(resolve, reject) {
+		fs.readFile(filename,{encoding:'utf8'},
+				(error,data) => {
+					if (error) {
+						reject(error);
+					} else {
+						resolve(data);
+					}
+				}
+		);
+	});
+}
