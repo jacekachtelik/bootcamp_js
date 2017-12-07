@@ -1,5 +1,5 @@
 // import { clearInterval } from "timers";
-
+console.log('timers');
 class Stopwatch {
     constructor(display) {
         this.running = false;
@@ -15,23 +15,26 @@ class Stopwatch {
         };
     }
     print() {
-        this.display.innerTtext = this.format(this.times);
+        this.display.innerText = this.format(this.times);
     }
     format(times) {
         return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
     }
     start() {
+        console.log('start');
         if (!this.running) {
             this.running = true;
-            this.watch = setInterval(() => this.step,10); 
+            this.watch = setInterval(() => this.step(),10);
         }
     }
     step() {
+        console.log('step');
         if (!this.running) return;
-        this.calculate;
+        this.calculate();
         this.print();
     }
     stop() {
+        console.log('stop');
         this.running = false;
         clearInterval(this.watch);
     }    
@@ -61,4 +64,4 @@ var startButton = document.getElementById('start');
 startButton.addEventListener('click',() => stopwatch.start());
 
 var stopButton = document.getElementById('stop');
-stopButton.addEventListener('click',()  =>  stopwatch.stop());
+stopButton.addEventListener('click',() => stopwatch.stop());

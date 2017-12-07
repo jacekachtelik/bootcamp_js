@@ -5,6 +5,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 // import { clearInterval } from "timers";
+console.log('timers');
 
 var Stopwatch = function () {
     function Stopwatch(display) {
@@ -28,7 +29,7 @@ var Stopwatch = function () {
     }, {
         key: 'print',
         value: function print() {
-            this.display.innerTtext = this.format(this.times);
+            this.display.innerText = this.format(this.times);
         }
     }, {
         key: 'format',
@@ -40,23 +41,26 @@ var Stopwatch = function () {
         value: function start() {
             var _this = this;
 
+            console.log('start');
             if (!this.running) {
                 this.running = true;
                 this.watch = setInterval(function () {
-                    return _this.step;
+                    return _this.step();
                 }, 10);
             }
         }
     }, {
         key: 'step',
         value: function step() {
+            console.log('step');
             if (!this.running) return;
-            this.calculate;
+            this.calculate();
             this.print();
         }
     }, {
         key: 'stop',
         value: function stop() {
+            console.log('stop');
             this.running = false;
             clearInterval(this.watch);
         }
