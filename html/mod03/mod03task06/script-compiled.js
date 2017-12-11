@@ -11,6 +11,7 @@ var Stopwatch = function () {
     function Stopwatch(display) {
         _classCallCheck(this, Stopwatch);
 
+        this.number = 1;
         this.running = false;
         this.display = display;
         this.reset();
@@ -20,11 +21,14 @@ var Stopwatch = function () {
     _createClass(Stopwatch, [{
         key: 'reset',
         value: function reset() {
+            console.log('reset');
+            if (this.running) return;
             this.times = {
                 minutes: 0,
                 seconds: 0,
                 miliseconds: 0
             };
+            this.print();
         }
     }, {
         key: 'print',
@@ -77,6 +81,29 @@ var Stopwatch = function () {
                 this.times.seconds = 0;
             }
         }
+    }, {
+        key: 'save',
+        value: function save() {
+            if (this.running) return;
+            console.log('save');
+            var time = document.querySelector('.stopwatch').textContent;
+            console.log(time);
+            var ul = document.querySelector('.results');
+            var li = document.createElement('li');
+            var text = document.createTextNode(this.number + '. ' + time);
+            li.appendChild(text);
+            ul.appendChild(li);
+            this.number++;
+        }
+    }, {
+        key: 'resetList',
+        value: function resetList() {
+            console.log('reset list');
+            if (this.running) return;
+            this.reset();
+            this.number = 1;
+            document.querySelector('.results').textContent = '';
+        }
     }]);
 
     return Stopwatch;
@@ -99,4 +126,19 @@ startButton.addEventListener('click', function () {
 var stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', function () {
     return stopwatch.stop();
+});
+
+var resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', function () {
+    return stopwatch.reset();
+});
+
+var saveButton = document.getElementById('save');
+saveButton.addEventListener('click', function () {
+    return stopwatch.save();
+});
+
+var resetListButton = document.getElementById('resetList');
+resetListButton.addEventListener('click', function () {
+    return stopwatch.resetList();
 });
