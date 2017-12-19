@@ -38,16 +38,38 @@ var Stopwatch = function (_React$Component) {
 var Results = function (_React$Component2) {
     _inherits(Results, _React$Component2);
 
-    function Results() {
+    function Results(props) {
         _classCallCheck(this, Results);
 
-        return _possibleConstructorReturn(this, (Results.__proto__ || Object.getPrototypeOf(Results)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Results.__proto__ || Object.getPrototypeOf(Results)).call(this, props));
     }
 
     _createClass(Results, [{
         key: "render",
         value: function render() {
-            return React.createElement("ul", { className: "results" });
+            console.log('Props', this.props.results);
+            // console.log('state',this.state);
+            var resultsData = this.props.results;
+            if (resultsData.length === 0) return React.createElement("ul", { className: "results" });
+            resultsData.sort(compare);
+            var counter = 0;
+            var results = resultsData.map(function (result) {
+                counter++;
+                return React.createElement(
+                    "li",
+                    { key: result.number },
+                    counter,
+                    ". ",
+                    result.time
+                );
+            });
+
+            // const 
+            return React.createElement(
+                "ul",
+                { className: "results" },
+                results
+            );
         }
     }]);
 
@@ -81,17 +103,17 @@ var Controls = function (_React$Component3) {
                 ),
                 React.createElement(
                     "a",
-                    { href: "#", className: "button", onCLick: this.props.onReset },
-                    "Reset"
-                ),
-                React.createElement(
-                    "a",
-                    { href: "#", className: "button" },
+                    { href: "#", className: "button", onClick: this.props.onSave },
                     "Save"
                 ),
                 React.createElement(
                     "a",
-                    { href: "#", className: "button" },
+                    { href: "#", className: "button", onClick: this.props.onReset },
+                    "Reset"
+                ),
+                React.createElement(
+                    "a",
+                    { href: "#", className: "button", onClick: this.props.onClear },
                     "Reset list"
                 )
             );
@@ -116,7 +138,8 @@ var App = function (_React$Component4) {
                 minutes: 0,
                 seconds: 0,
                 miliseconds: 0
-            }
+            },
+            results: []
         };
         return _this4;
     }
@@ -162,6 +185,30 @@ var App = function (_React$Component4) {
             this.setState({ times: time });
         }
     }, {
+        key: "onSave",
+        value: function onSave() {
+            console.log('save');
+            if (this.running) return;
+            var time = document.querySelector('.stopwatch').textContent;
+            console.log(time);
+            var result = this.state.results;
+            var number = this.state.number++;
+            result[number] = {
+                number: number,
+                time: time
+            };
+            this.setState({ results: result });
+        }
+    }, {
+        key: "onClear",
+        value: function onClear() {
+            console.log('clear');
+            if (this.running) return;
+            var result = [];
+            this.setState({ results: result });
+            // document.querySelector('.results').innerHTML = '';
+        }
+    }, {
         key: "calculate",
         value: function calculate() {
             var time = this.state.times;
@@ -185,10 +232,12 @@ var App = function (_React$Component4) {
                 React.createElement(Controls, {
                     onStart: this.onStart.bind(this),
                     onStop: this.onStop.bind(this),
-                    onReset: this.onReset.bind(this)
+                    onSave: this.onSave.bind(this),
+                    onReset: this.onReset.bind(this),
+                    onClear: this.onClear.bind(this)
                 }),
                 React.createElement(Stopwatch, { times: this.state.times }),
-                React.createElement(Results, null)
+                React.createElement(Results, { results: this.state.results })
             );
         }
     }]);
@@ -204,4 +253,10 @@ function pad0(value) {
         result = '0' + result;
     }
     return result;
+}
+
+function compare(time1, time2) {
+    if (time1.time > time2.time) return 1;
+    if (time2.time > time1.time) return -1;
+    return 0;
 }

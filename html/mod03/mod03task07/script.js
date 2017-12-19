@@ -7,9 +7,27 @@ class Stopwatch  extends React.Component {
 }
 
 class Results extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
+        console.log('Props',this.props.results);
+        // console.log('state',this.state);
+        var resultsData = this.props.results;
+        if (resultsData.length === 0) return (<ul className="results"></ul>);
+        resultsData.sort(compare);
+        var counter = 0;
+        var results = resultsData.map(function(result){
+            counter++;
+            return <li key={result.number}>{counter}. {result.time}</li>
+        });
+
+        // const 
         return (
-            <ul className="results"></ul>
+            <ul className="results">
+                {results}
+            </ul>
+            
         );
     }
 }
@@ -20,9 +38,9 @@ class Controls extends React.Component {
             <nav className="controls">
                 <a href="#" className="button" onClick = {this.props.onStart} >Start</a>
                 <a href="#" className="button" onClick = {this.props.onStop}>Stop</a>
-                <a href="#" className="button" onCLick = {this.props.onReset}>Reset</a>
-                <a href="#" className="button" >Save</a>
-                <a href="#" className="button" >Reset list</a>
+                <a href="#" className="button" onClick = {this.props.onSave}>Save</a>
+                <a href="#" className="button" onClick = {this.props.onReset}>Reset</a>
+                <a href="#" className="button" onClick = {this.props.onClear}>Reset list</a>
             </nav>
         );
     }
@@ -38,7 +56,8 @@ class App extends React.Component{
                 minutes: 0,
                 seconds: 0,
                 miliseconds: 0
-            }
+            },
+            results: []            
         }
     }
     onStart() {
@@ -68,7 +87,27 @@ class App extends React.Component{
             miliseconds: 0
         }
         this.setState({times: time});
+    }
+    onSave() {
+        console.log('save');
+        if (this.running) return;
+        var time = document.querySelector('.stopwatch').textContent;
+        console.log(time);
+        var result = this.state.results;
+        var number = this.state.number++;
+        result[number] = {
+            number: number,
+            time: time
+        }
+        this.setState({results: result});       
     } 
+    onClear() {
+        console.log('clear');
+        if (this.running) return;
+        var result = [];
+        this.setState({results:result});
+        // document.querySelector('.results').innerHTML = '';
+    }    
     calculate() {
         var time = this.state.times;
         time.miliseconds += 1;
@@ -88,10 +127,12 @@ class App extends React.Component{
                 <Controls 
                     onStart = {this.onStart.bind(this)} 
                     onStop = {this.onStop.bind(this)}
+                    onSave = {this.onSave.bind(this)}
                     onReset = {this.onReset.bind(this)}
+                    onClear = {this.onClear.bind(this)}
                 />
                 <Stopwatch times = {this.state.times} />
-                <Results />
+                <Results results = {this.state.results}/>
             </div>
         );
     }
@@ -108,4 +149,10 @@ function pad0(value) {
         result = '0' + result;
     }
     return result;
+}
+
+function compare(time1,time2) {
+    if (time1.time > time2.time) return 1;
+    if (time2.time > time1.time) return -1;
+    return 0;
 }
