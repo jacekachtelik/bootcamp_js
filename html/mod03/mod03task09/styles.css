@@ -1,0 +1,56 @@
+form {
+    display: block;
+    width: 100%;
+    padding: 10px 30px;
+    background: #333;
+    color: #fff;
+    
+}
+label {
+    font-size: 16px;
+}
+input#searchText {
+    margin-left: 30px;
+    width: 300px;
+    padding: 5px 10px;
+    font-size: 20px;
+    background: #333;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus {
+    background-color:#ccc;
+    color: #333;
+}
+
+.users_list{
+    width: 100%;
+    margin-top: 20px;
+    border: 0px;
+}
+
+.user {
+    width: 100%;
+    margin: 10px 0px;
+    padding: 10px;
+    background-attachment: #ddd;
+    border: 1px solid #aaa;
+}
+
+.user img {
+    display: inline-block;
+    clear: both;
+    position: relative;
+    margin-left: 0px;
+    padding: 25px 10px;
+}
+
+.user a {
+    position: relative;
+    display: inline-block;
+    left: 50px;
+    font-size: 32px;
+    text-decoration: none;
+    color: #333;
+}
