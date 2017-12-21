@@ -1,0 +1,42 @@
+.ToDoItemsContainer{
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+.ToDoItem {
+    height: 100px;
+    margin: 15px 0px;
+}
+.ToDoItemHeader{
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 24px;
+    color: #666;
+}
+.ToDoItemName {
+    font-weight: bold;
+    color: #999;
+}
+.ToDoItemDescription{
+    width: 100%;
+    padding: 10px 15px;
+    color: #333;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+.RemoveButton {
+    display: inline-block;
+    position: relative;
+    top: -75px;
+    width: 100px;
+    height: 25px;
+    color: #fff;
+    background: #333;
+    margin: 0px 10px;
+    margin-left: 500px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px 10px;
+
+}

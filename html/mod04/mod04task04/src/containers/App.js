@@ -2,16 +2,15 @@ import React from 'react';
 import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
+import ToDoList from '../Components/ToDolist'
 
 class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            counter: 0
+            data: props.todo,
+            counter: props.todo.length
         };
-        ;
-
     }
     addToDo(val) {
         const todo = {
@@ -20,8 +19,7 @@ class App extends React.Component{
         };
         const data = [...this.state.data,todo];
         let counter = data.length;
-        this.setState({data});
-        this.setState({counter});
+        this.setState({data,counter});
     }
     removeToDo(id) {
         const remainder = this.state.data.filter(todo => todo.id !== id);
@@ -31,9 +29,9 @@ class App extends React.Component{
         return(
             <div className={style.TodoApp}>
                 <Title title = {this.state.counter} />
+                <ToDoList list = {this.state.data} removeToDo={this.removeToDo.bind(this)} />
             </div>
         );
     }
 }
-
 export default App;
