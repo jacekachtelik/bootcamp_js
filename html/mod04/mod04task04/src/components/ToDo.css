@@ -23,7 +23,6 @@
     word-wrap: break-word;
     text-align: justify;
 }
-
 .RemoveButton {
     display: inline-block;
     position: relative;
@@ -33,10 +32,9 @@
     color: #fff;
     background: #333;
     margin: 0px 10px;
-    margin-left: 500px;
+    margin-left: 700px;
     font-size: 16px;
     text-align: center;
     text-decoration: none;
     padding: 5px 10px;
-
 }

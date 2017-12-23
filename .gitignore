@@ -9,6 +9,8 @@ html/mod02_react/mod02task08/node_modules/*
 html/mod02_react/mod02task08/package*
 html/mod02_react/node_modules/*
 html/mod02_react/package*
+html/mod02/node_modules/*
+html/mod02/mod02task08/node_modules/*
 html/mod03/mod03task01/node_modules/*
 html/mod03/mod03task01/package*
 html/mod03/mod03task05/node_modules/*
@@ -16,6 +18,8 @@ html/mod03/mod03task05/package*
 html/mod03/mod03task06/node_modules/*
 html/mod03/mod03task06/package*
 html/mod03/mod03task07/node_modules/*
+html/mod03/mod03task08/node_modules/*
+html/mod03/mod03task09/node_modules/*
 html/mod04/mod04task01/node_modules/*
 html/mod04/mod04task03/node_modules/*
 html/mod04/mod04task04/node_modules/*
@@ -26,8 +30,4 @@ html/mod04/mod04task04/node_modules/*
 \.idea/
 
 \.settings/
-
-
-
-
 

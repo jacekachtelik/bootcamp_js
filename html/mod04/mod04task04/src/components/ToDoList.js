@@ -6,7 +6,7 @@ const ToDoList = props => {
         console.log(props.list);
         return(
             <div className={styles.ToDoListContainer}>
-                <ToDo items={props.list} removeToDo={props.removeToDo}/>
+                <ToDo items={props.list} alert={props.alert}/>
             </div>
         );
 };

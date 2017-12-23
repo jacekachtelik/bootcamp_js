@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 import App from './containers/App';
 
 var todo = [{
@@ -20,3 +21,14 @@ ReactDOM.render(
     <App todo = {todo}/>,
     document.getElementById('app')
 );
+if (module.hot) {
+    module.hot.accept('./containers/App', () => {
+        const NextApp = require('./containers/App').default;
+        ReactDOM.render(
+            <AppContainer>
+                <NextApp todo = {todo} />
+            </AppContainer>,
+            document.getElementById('app')
+        );
+    });
+}
