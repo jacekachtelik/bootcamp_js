@@ -2,75 +2,21 @@ import React, { PropTypes } from 'react';
 import { render } from 'react-dom';
 import { createStore } from 'redux';
 import { connect, Provider } from 'react-redux';
+import { rootReducer as reducers } from "./reducers";
+import { Container as CommentsContainer } from './comments';
 
-
-/*
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'ADD_COMMENT':
-            return { ...state, counter: state.counter + 1 };
-        case 'DELETE_COMMENT':
-            return { ...state, counter: state.counter - 1 };
-        case 'EDIT_COMMENT':
-            return { ...state, counter: state.counter - 1 };
-        case 'LIKE':
-            return { ...state, counter: state.counter - 1 };
-        case 'DISLIKE':
-            return { ...state, counter: state.counter - 1 };            
-        default:
-            return state;
-    }
-};
-*/
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return { ...state, counter: state.counter + 1 };
-    case 'DECREMENT':
-      return { ...state, counter: state.counter - 1 };
-    default:
-      return state;
-    }
-};
-
-const store = createStore(reducer, { counter: 0 });
-
-class Counter extends React.Component {
-  static propTypes = {
-    counter: PropTypes.Number,
-    onIncrement: PropTypes.func,
-    onDecrement: PropTypes.func
-  };
-
-  render() {
-    const { counter, onDecrement, onIncrement } = this.props;
-
-    return (
-      <div>
-        <div>{counter}</div>
-        <button onClick={onDecrement}>-</button>
-        <button onClick={onIncrement}>+</button>
-      </div>
-    );
-  }
+function devBuildOnly(args) {
+  return args;
 }
-
-const mapStateToProps = (state) => {
-  return { counter: state.counter };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onIncrement: () => dispatch({ type: 'INCREMENT' }),
-    onDecrement: () => dispatch({ type: 'DECREMENT' })
-  }
-};
-
-Counter = connect(mapStateToProps, mapDispatchToProps)(Counter);
+ 
+let store = createStore(
+  reducers,
+  devBuildOnly(window.devToolsExtension ? window.devToolsExtension() : f => f)
+);
 
 render(
   <Provider store={store}>
-    <Counter />
+    <CommentsContainer />
   </Provider>
   , document.getElementById('app')
 );
