@@ -29,7 +29,7 @@ class ToDoForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit} className={styles.FormName}>
                 <label>
-                    <span className={styles.Label}>Tytuł:</span> <input type="text" className={styles.Title} name="name" onChange={this.handleChange} value={this.state.title} placeholder="Tutaj wpisz tytuł zadania"/>
+                    <span className={styles.Label}>Tytuł:</span> <input type="text" className={styles.Title} name="title" onChange={this.handleChange} value={this.state.title} placeholder="Tutaj wpisz tytuł zadania"/>
                 </label><br />
                 <label>
                     <span className={styles.Label}>Opis:</span> <textarea cols="40" rows="5" className={styles.Description} name="descritpion" onChange={this.handleChange} value={this.state.dscription} placeholder="Tutaj wpisz treść zadania"/>
