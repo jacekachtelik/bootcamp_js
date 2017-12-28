@@ -1,10 +1,10 @@
-const path = '/Dokumenty/Prywatne/Programowanie/Kodilla/html/html/mod05/mod05task04';
+
 var express = require('express');
 var app = express();
 app.use(express.static('assets'));
 app.get('/', function (req, res) {
     // res.send('Hello world');
-    res.sendFile(path + '/index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 app.get('/userform', function (req, res) {
     const response = {
