@@ -1,11 +1,10 @@
 import uuid from 'uuid';
 
-export const NAME = 'comments';
-export const ADD_COMMENT = NAME + '/ADD_COMMENT';
-export const DELETE_COMMENT = NAME + '/DELETE_COMMENT';
-export const EDIT_COMMENT = NAME + '/EDIT_COMMENT';
-export const LIKE_COMMENT = NAME + '/LIKE_COMMENT';
-export const DISLIKE_COMMENT = NAME + '/DISLIKE_COMMENT';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const EDIT_COMMENT = 'EDIT_COMMENT';
+export const LIKE_COMMENT = 'LIKE_COMMENT';
+export const DISLIKE_COMMENT = 'DISLIKE_COMMENT';
 
 export function addComment(comment) {
     return (dispatch,getState) => {
