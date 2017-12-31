@@ -5,6 +5,7 @@ import { createStructuredSelector } from 'reselect';
 
 import * as actions from "../actionTypes";
 import { getAllComments } from '../selectors';
+import CommentList from './CommentsList';
 
 class CommentsContainer extends React.Component {
     render() {
