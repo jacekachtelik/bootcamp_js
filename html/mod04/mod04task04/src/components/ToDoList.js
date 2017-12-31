@@ -3,11 +3,10 @@ import styles from './ToDoList.css';
 import ToDo from './ToDo';
 
 const ToDoList = props => {
-        console.log(props.list);
         return(
-            <div className={styles.ToDoListContainer}>
+            <ul className={styles.ToDoListContainer}>
                 <ToDo items={props.list} alert={props.alert}/>
-            </div>
+            </ul>
         );
 };
 export default ToDoList;

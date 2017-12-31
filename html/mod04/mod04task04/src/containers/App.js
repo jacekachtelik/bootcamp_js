@@ -7,7 +7,6 @@ import ToDoForm from "../components/ToDoForm";
 
 class App extends React.Component{
     constructor(props) {
-        console.log(props);
         super(props);
         this.state = {
             data: props.todo,
