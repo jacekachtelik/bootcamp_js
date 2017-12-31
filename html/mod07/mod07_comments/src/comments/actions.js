@@ -1,3 +1,5 @@
+import uuid from 'uuid';
+
 export const NAME = 'comments';
 export const ADD_COMMENT = NAME + '/ADD_COMMENT';
 export const DELETE_COMMENT = NAME + '/DELETE_COMMENT';
@@ -69,4 +71,3 @@ export function dislikeComment(comment) {
         });
     };
 };
-

@@ -56,7 +56,7 @@ export function dislikeComment(comment) {
     return (dispatch, getState) => {
         const state = getState();
         dispatch({
-            type: LIKE,
+            type: DISLIKE,
             data: {
                 id: 1,
                 votes: 22

@@ -44,9 +44,7 @@ const comments = (state = initialState, action) => {
             });
         case EDIT_COMMENT:
             return Object.assign({}, state, {
-                // comments: state.comments.map(comment => editComment(comment, action.data))
                 comments: state.comments.map(editComment.bind(this,action.data))
-                // bind(action.data, comment)
             });
         case LIKE_COMMENT:
             return Object.assign({}, state, {
