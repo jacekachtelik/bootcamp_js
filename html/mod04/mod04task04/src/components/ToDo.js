@@ -10,7 +10,7 @@ const ToDo = props => {
             <li className={styles.ToDoItem} key={item.id}>
                 <div className={styles.ToDoItemHeader} >Zadanie nr.: {counter} <span className={styles.ToDoItemName}>{item.title}</span></div>
                 <div className={styles.ToDoItemDescription} >{item.description}</div>
-                <input type="button" className={styles.RemoveButton} onClick={props.alert(item.id)} value="Usuń" />
+                <input type="button" className={styles.RemoveButton} onClick={e => props.remove(item.id)} value="Usuń" />
             </li>
         );
     });

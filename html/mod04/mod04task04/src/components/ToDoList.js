@@ -5,7 +5,7 @@ import ToDo from './ToDo';
 const ToDoList = props => {
         return(
             <ul className={styles.ToDoListContainer}>
-                <ToDo items={props.list} alert={props.alert}/>
+                <ToDo items={props.list} remove={props.remove}/>
             </ul>
         );
 };
