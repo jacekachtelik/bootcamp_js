@@ -1,4 +1,4 @@
-import { ADD, EDIT, DELETE } from "./actionTypes";
+import { ADD, EDIT, DELETE, LIKE, DISLIKE } from "./actionTypes";
 
 export function addComment(comment) {
     return (dispatch,getState) => {
@@ -39,4 +39,28 @@ export function deleteComment(comment) {
     };
 };
 
+export function likeComment(comment) {
+    return (dispatch, getState) => {
+        const state = getState();
+        dispatch({
+            type: LIKE,
+            data: {
+                id: 1,
+                votes: 24
+            }
+        });
+    };
+};
 
+export function dislikeComment(comment) {
+    return (dispatch, getState) => {
+        const state = getState();
+        dispatch({
+            type: LIKE,
+            data: {
+                id: 1,
+                votes: 22
+            }
+        });
+    };
+};
