@@ -1,20 +1,31 @@
-import { ADD, EDIT, DELETE } from "./actionTypes";
+import { ADD, EDIT, DELETE, LIKE, DISLIKE } from "./actionTypes";
 
 const initialState = {
     comments: [
         {
-            id: 1,
+            id: '12741danx1278',
             text: 'komentarz testowy',
             votes: 23
         },
         {
-            id: 2,
+            id: '12741danb1278',
             text: 'komentarz testowy 2',
             votes: 12
         }
+    ],
+    users: [
+        {
+            id: '121jk6d89h2d',
+            firstName: 'Jacek',
+            lastName: 'Achtelik',
+            comments: [
+                '12741danb1278'
+            ]
+        }
     ]
 };
-
+// Sekcja users powinna być wystawiona do innego reducera.
+// Reducer dot. komentarzy
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD:
@@ -37,12 +48,14 @@ const reducer = (state = initialState, action) => {
                 comments: state.comments.map(editComment.bind(this,action.data))
                 // bind(action.data, comment)
             });
-        // case LIKE:
-        //     return Object.assign({}, state, {
-        //         comments: state.comments.map(addVote.bind(this,action.data.id))
-        //     });
-        // case 'DISLIKE':
-        //     return { ...state, counter: state.counter - 1 };            
+        case LIKE:
+            return Object.assign({}, state, {
+                comments: state.comments.map(addVote.bind(this,action.data.id))
+            });
+        case DISLIKE:
+            return Object.assign({}, state, {
+                comments: state.comments.map(removeVote.bind(this,action.data.id))
+            });      
         default:
             return state;
     }
