@@ -1,0 +1,10 @@
+use myfirstdb
+db
+show dbs
+db.createCollection("collection_number_one")
+show collections
+db.myfirstdb.insert({"name":"my first record"})
+db.collection_number_one.insert({name:"Burek",age: 3,tags: ["dog","bark"]})
+db.collection_number_one.find()
+db.collection_number_one.insert({name:"Reksio",age: 5,tags: ["dog","bark","loyal"]})
+db.collection_number_one.find({name: {$ne:"Burek"}})

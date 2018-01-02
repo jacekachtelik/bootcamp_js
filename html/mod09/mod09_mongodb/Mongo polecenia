@@ -1,0 +1,4 @@
+use myfirstdb
+db
+show dbs
+db.createCollection("collection_number_one")
