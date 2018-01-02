@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import { createStore } from 'redux';
 import { connect, Provider } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-
-import * as actions from "../actionTypes";
+import { bindActionCreators } from 'redux'
+import * as actions from "../actions";
 import { getAllComments } from '../selectors';
 import CommentList from './CommentsList';
 

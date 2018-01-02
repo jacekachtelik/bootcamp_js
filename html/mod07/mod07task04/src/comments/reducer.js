@@ -1,4 +1,4 @@
-import { ADD, EDIT, DELETE, LIKE, DISLIKE } from "./actionTypes";
+import { ADD, EDIT, DELETE, LIKE, DISLIKE } from "./actions";
 
 const initialState = {
     comments: [

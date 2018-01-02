@@ -1,4 +1,9 @@
-import { ADD, EDIT, DELETE, LIKE, DISLIKE } from "./actionTypes";
+export const NAME = 'comments';
+export const ADD = 'add';
+export const DELETE = 'delete';
+export const EDIT = 'edit';
+export const LIKE = 'like';
+export const DISLIKE = 'dislike';
 
 export function addComment(comment) {
     return (dispatch,getState) => {
