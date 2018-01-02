@@ -10,7 +10,6 @@ mongoose.connect('mongodb://mongodb_user_ja:123qwe@ds235827.mlab.com:35827/users
     useMongoClient: true
 });
 
-
 // Schemat nowego użytkownika
 const userSchema = new Schema({
     name: String,

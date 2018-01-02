@@ -1,3 +1,4 @@
+// Operacje na użytkownikach
 var User = require('./server');
 
 const johny = new User({

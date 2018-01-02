@@ -1,7 +1,7 @@
 {
   "name": "mod09_mongodb",
   "version": "1.0.0",
-  "description": "MongoDH, Heroku, nodejs",
+  "description": "MongoDH, Heroku, nodejs - hosting",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

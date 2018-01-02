@@ -1,5 +1,5 @@
+// Tworzenie użytkownika
 var User = require('./server');
-
 
 const kenny = new User({
     name: 'Kenny',
