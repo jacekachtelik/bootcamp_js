@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
-// import { createStore } from 'redux';
-// import { connect, Provider } from 'react-redux';
 import Comment from './Comment';
 
-const CommentList = ({comments}) => <ul>{comments.map(comment => <Comment key={comment.id} {...comment} />)}</ul>;
+const CommentList = (props) => {
+    console.log('Props na ul',props);
+    return(
+        <ul>{props.comments.map(comment => <Comment key={comment.id} {...comment} delete={props.delete} />)}</ul>
+    );
+};
 export default CommentList;
 

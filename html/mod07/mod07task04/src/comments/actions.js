@@ -1,7 +1,7 @@
 export const NAME = 'comments';
-export const ADD = 'add';
-export const DELETE = 'delete';
-export const EDIT = 'edit';
+export const ADD_COMMENT = 'add';
+export const DELETE_COMMENT = 'delete';
+export const EDIT_COMMENT = 'edit';
 export const LIKE = 'like';
 export const DISLIKE = 'dislike';
 
@@ -9,7 +9,7 @@ export function addComment(comment) {
     return (dispatch,getState) => {
             const state = getState();
             dispatch({
-                type: ADD,
+                type: ADD_COMMENT,
                 data: {
                     id: 1,
                     text: 'Przykładowy komentarz',
@@ -23,7 +23,7 @@ export function editComment(comment) {
     return (dispatch,getState) => {
             const state = getState();
             dispatch({
-                type: EDIT,
+                type: EDIT_COMMENT,
                 data: {
                     id: 1, // comments.id
                     text: 'Przykładowy komentarz', //comments.text
@@ -36,7 +36,7 @@ export function editComment(comment) {
 export function deleteComment(comment) {
     return (dispatch) => {
         dispatch({
-            type: DELETE,
+            type: DELETE_COMMENT,
             data: {
                 id: 1
             }

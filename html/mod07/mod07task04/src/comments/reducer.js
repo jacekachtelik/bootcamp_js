@@ -1,34 +1,17 @@
-import { ADD, EDIT, DELETE, LIKE, DISLIKE } from "./actions";
+import { ADD_COMMENT, EDIT_COMMENT, DELETE_COMMENT, LIKE, DISLIKE } from "./actions";
+import comments from './comments.json';
+import users from './users.json';
+
 
 const initialState = {
-    comments: [
-        {
-            id: '12741danx1278',
-            text: 'komentarz testowy',
-            votes: 23
-        },
-        {
-            id: '12741danb1278',
-            text: 'komentarz testowy 2',
-            votes: 12
-        }
-    ],
-    users: [
-        {
-            id: '121jk6d89h2d',
-            firstName: 'Jacek',
-            lastName: 'Achtelik',
-            comments: [
-                '12741danb1278'
-            ]
-        }
-    ]
+    comments: comments,
+    users: users,
 };
 // Sekcja users powinna być wystawiona do innego reducera.
 // Reducer dot. komentarzy
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD:
+        case ADD_COMMENT:
             return Object.assign({}, state, {
                 comments: [
                 {
@@ -38,11 +21,11 @@ const reducer = (state = initialState, action) => {
                 }
                 , ...state]
             });
-        case DELETE:
+        case DELETE_COMMENT:
             return Object.assign({}, state, {
                 comments: state.comments.filter(comment => comment.id !== action.data.id)
             });
-        case EDIT:
+        case EDIT_COMMENT:
             return Object.assign({}, state, {
                 // comments: state.comments.map(comment => editComment(comment, action.data))
                 comments: state.comments.map(editComment.bind(this,action.data))
@@ -55,7 +38,7 @@ const reducer = (state = initialState, action) => {
         case DISLIKE:
             return Object.assign({}, state, {
                 comments: state.comments.map(removeVote.bind(this,action.data.id))
-            });      
+            }); 
         default:
             return state;
     }
