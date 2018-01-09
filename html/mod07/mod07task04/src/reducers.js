@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
-import { reducer as commentsReducer } from "./comments/reducer";
+import comments from "./comments/comments";
+// import usersReducer from "./users/users";
 
 const appReducer = combineReducers({
-    commentsReducer
+    comments,
+    // usersReducer
 });
 
 // Tutaj obsługa np. logout, login

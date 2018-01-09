@@ -6,7 +6,9 @@ class CommentsForm extends Component {
         this.state = {
             text: '',
         };
-
+    }
+    handleChange() {
+        
     }
     render() {
         return (

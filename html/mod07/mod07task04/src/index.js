@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react';
 import { render } from 'react-dom';
 import { connect, Provider } from 'react-redux';
-import store from './comments/store';
-import CommentsContainer from './comments/components/CommentsContainter';
+import store from './store';
+import CommentsListContainer from './comments/components/CommentsListContainer';
 
 render(
   <Provider store={store}>
-    <CommentsContainer />
+    <CommentsListContainer />
   </Provider>
   , document.getElementById('app')
 );
+

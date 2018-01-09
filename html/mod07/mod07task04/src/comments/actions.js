@@ -1,23 +1,19 @@
-export const NAME = 'comments';
-export const ADD_COMMENT = 'add';
-export const DELETE_COMMENT = 'delete';
-export const EDIT_COMMENT = 'edit';
-export const LIKE = 'like';
-export const DISLIKE = 'dislike';
+import uuid from 'uuid';
 
-export function addComment(comment) {
-    return (dispatch,getState) => {
-            const state = getState();
-            dispatch({
-                type: ADD_COMMENT,
-                data: {
-                    id: 1,
-                    text: 'Przykładowy komentarz',
-                    votes: 23
-                }
-            });
-        };
-};
+export const NAME = 'comments';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const EDIT_COMMENT = 'EDIT_COMMENT';
+export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
+export const THUMB_DOWN_C0MMENT = 'THUMB_DOWN_C0MMENT';
+
+function addComment(text) {
+    return {
+      type: ADD_COMMENT,
+      id: uuid.v4(),
+      text: text
+    }
+}
 
 export function editComment(comment) {
     return (dispatch,getState) => {
@@ -33,39 +29,25 @@ export function editComment(comment) {
         };
 };
 
-export function deleteComment(comment) {
+export function deleteComment(commentId) {
     return (dispatch) => {
         dispatch({
             type: DELETE_COMMENT,
-            data: {
-                id: 1
-            }
+            id: commentId
         });
     };
 };
 
-export function likeComment(comment) {
-    return (dispatch, getState) => {
-        const state = getState();
-        dispatch({
-            type: LIKE,
-            data: {
-                id: 1,
-                votes: 24
-            }
-        });
-    };
+export function thumbUpComment(commentId) {
+    return {
+        type: THUMB_UP_COMMENT,
+        id: commentId
+      }
 };
 
-export function dislikeComment(comment) {
-    return (dispatch, getState) => {
-        const state = getState();
-        dispatch({
-            type: DISLIKE,
-            data: {
-                id: 1,
-                votes: 22
-            }
-        });
-    };
+export function thumbDownComment(commentId) {
+    return {
+        type: THUMB_DOWN_C0MMENT,
+        id: commentId
+      }
 };
