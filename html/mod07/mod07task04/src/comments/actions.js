@@ -7,6 +7,7 @@ export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const THUMB_UP_COMMENT = 'THUMB_UP_COMMENT';
 export const THUMB_DOWN_C0MMENT = 'THUMB_DOWN_C0MMENT';
 
+// Funkcja nie zaimplementowana
 function addComment(text) {
     return {
       type: ADD_COMMENT,
@@ -15,6 +16,7 @@ function addComment(text) {
     }
 }
 
+// Funkcja nie zaimplementowana
 export function editComment(comment) {
     return (dispatch,getState) => {
             const state = getState();
@@ -30,11 +32,9 @@ export function editComment(comment) {
 };
 
 export function deleteComment(commentId) {
-    return (dispatch) => {
-        dispatch({
-            type: DELETE_COMMENT,
-            id: commentId
-        });
+    return {
+        type: DELETE_COMMENT,
+        id: commentId
     };
 };
 
